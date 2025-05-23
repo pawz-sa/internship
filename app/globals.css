@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-open: open 0.3s ease-in;
+  --animate-close: open 0.3s ease-in reverse;
+  @keyframes open {
+    0% {
+      transform: scale(0.5);
+      transform-origin: top right;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+body {
+  background-color: #292929;
+}
