@@ -4,7 +4,7 @@ import Dot from "../components/Dot"
 export default function Home() {
   return (
     /* 背景 */
-    <div className="relative bg-[url('/bg.webp')] bg-cover bg-center w-full h-screen overflow-hidden">
+    <div className="relative bg-[url('/images/bg.webp')] bg-cover bg-center w-full h-screen overflow-hidden">
       {/* 遮罩 */}
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 

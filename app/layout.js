@@ -9,7 +9,7 @@ const playfair = Playfair_Display({
 const plexmono = IBM_Plex_Mono({
   variable: "--font-plexmono",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "600"],
   display: "swap",
 })
 

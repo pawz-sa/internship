@@ -1,16 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
-import MenuButton from "./MenuButton"
-
-const menuItems = [
-  { label: "HOME", iconType: "home", href: "/" },
-  { label: "ABOUT", iconType: "about", href: "/about" },
-  { label: "PORTFOLIO", iconType: "portfolio", href: "/portfolio" },
-  { label: "CONTACT", iconType: "contact", href: "/contact" },
-  { label: "BLOG", iconType: "blog", href: "/blog" },
-]
+import { menuItems } from "../public/data/res"
 
 export default function NavMenu() {
   const [visible, setVisible] = useState(false)
@@ -26,10 +17,23 @@ export default function NavMenu() {
     }
   }, [visible])
 
-  const handleLinkClick = () => {
+  const handleClick = () => {
     setVisible(false)
     setShowMenu(false)
   }
+
+  /* 
+待办：
+1. 导航栏跳转
+2. 导航栏高亮
+3. about页面
+4. 页面切换动画
+
+5. 懒加载
+6. 分布式
+7. 作品展示
+
+*/
 
   return (
     <>
@@ -53,7 +57,20 @@ export default function NavMenu() {
           }`}
         />
       </button>
+      {showMenu && (
+        <div className="fixed text-white w-50 top-[25px] right-[25px] px-[15px] py-[15px] bg-[#383838] z-11">
+          <ul className="relative mt-[15px] space-y-[28px] text-[17px] font-[IBM_Plex_Mono] font-semibold">
+            {menuItems.map((item, index) => (
+              <li key={index} className="ml-[9px] flex items-center gap-[20px]">
+                {item.icon}
+                <span className="leading-[21px]">{item.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
+      {/* 
       {showMenu && (
         <ul
           className={`fixed w-[200px] top-[25px] right-[25px] p-[15px] bg-[#383838] leading-[24px] z-11 text-left rounded origin-top-right ${
@@ -72,7 +89,7 @@ export default function NavMenu() {
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </>
   )
 }

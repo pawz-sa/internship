@@ -5,24 +5,7 @@ import Badge from "../../components/Badge"
 import SkillBar from "../../components/SkillBar"
 import NavMenu from "../../components/NavMenu"
 import Dot from "../../components/Dot"
-
-const resumeItem = [
-  { position: "Web Developer", firm: "Adobe", date: "2018 - NOW", detail: "Curabitur mollis bibendum luctus..." },
-  { position: "Designer", firm: "Twitter", date: "2014 - 2018", detail: "Curabitur mollis bibendum luctus..." },
-  { position: "Consultant", firm: "Facebook", date: "2006 - 2014", detail: "Curabitur mollis bibendum luctus..." },
-]
-
-const educationItem = [
-  {
-    degree: "Engineering Degree",
-    uni: "Oxford University",
-    date: "2015",
-    detail: "Curabitur mollis bibendum luctus...",
-  },
-  { degree: "Master Degree", uni: "Moscow University", date: "2012", detail: "Curabitur mollis bibendum luctus..." },
-  { degree: "Bachelor Degree", uni: "Tunis High School", date: "2009", detail: "Curabitur mollis bibendum luctus..." },
-  { degree: "Tech Degree", uni: "Paris High School", date: "2007", detail: "Curabitur mollis bibendum luctus..." },
-]
+import { resumeItems, educationItems } from "../../public/data/res"
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("experience")
@@ -43,13 +26,14 @@ export default function About() {
       </div>
 
       <div className="px-[25px]">
-        <img src="/man.webp" alt="profile" className="border-[4px] border-[#383838] mb-[40px]" />
+        <img src="/man.webp" alt="profile" className="border-[4px] border-[#444444] mb-[40px]" />
       </div>
 
       <div className="px-[25px] text-white font-[IBM_Plex_Mono] text-[17px] leading-[34px]">
         <p className="mb-[20px]">
-          I'm Daniel Martin, a London-based web designer and front-end developer focused on crafting clean, creative,
-          and user-friendly experiences.
+          I'm Daniel Martin, british based web designer and front‑end developer living in London focused on crafting
+          clean, creative and user‑friendly experiences, I build beautiful and powerful websites and android
+          applications.
         </p>
 
         <ul className="mb-[38px]">
@@ -99,7 +83,7 @@ export default function About() {
             className="flex transition-transform duration-500"
             style={{ transform: `translateX(-${(activeTab === "experience" ? activeIndex : activeEduIndex) * 100}%)` }}
           >
-            {(activeTab === "experience" ? resumeItem : educationItem).map((item, index) => (
+            {(activeTab === "experience" ? resumeItems : educationItems).map((item, index) => (
               <div key={index} className="w-full flex-shrink-0 flex justify-center">
                 <ResumeCard
                   position={item.position || item.degree}
@@ -113,7 +97,7 @@ export default function About() {
         </div>
 
         <div className="flex justify-center space-x-[10px] mt-[30px] pb-[70px]">
-          {(activeTab === "experience" ? resumeItem : educationItem).map((_, index) => (
+          {(activeTab === "experience" ? resumeItems : educationItems).map((_, index) => (
             <span
               key={index}
               onClick={() => (activeTab === "experience" ? setActiveIndex(index) : setActiveEduIndex(index))}
